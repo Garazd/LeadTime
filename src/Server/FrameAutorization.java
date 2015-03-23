@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class WindowInAdmin {
+    
     WindowInAdmin() {
 
         JFrame frameAutoriz = new JFrame("Авторизация");
