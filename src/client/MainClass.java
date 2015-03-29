@@ -5,21 +5,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ViewLoginClient {
-    public static void main(String[] args) {
-        GridBagLayout gridBagLayoutClient = new GridBagLayout();
-        GridBagConstraints gridBagConstraintsClient = new GridBagConstraints();
+class FrameViewClient {
 
-        JPanel panelClient = new JPanel();
+    static JPanel panelClient = new JPanel();
+
+    FrameViewClient() {
+        GridBagLayout gridBagLayoutClient = new GridBagLayout();
+
+
         panelClient.setLayout(gridBagLayoutClient);
 
         final JButton buttonClientOk = new JButton("Ok");
+        final JButton buttonClientCancel = new JButton("Cancel");
 
         JTextField textFieldLogin = new JTextField(20);
         JTextField textFieldPassword = new JTextField(20);
 
-        gridBagConstraintsClient.gridx = 0;
-        gridBagConstraintsClient.gridy = 0;
+        GridBagConstraintsClient(gridBagConstraintsClient);
         panelClient.add(textFieldLogin, gridBagConstraintsClient);
 
         gridBagConstraintsClient.gridx = 0;
@@ -30,6 +32,10 @@ public class ViewLoginClient {
         gridBagConstraintsClient.gridy = 2;
         panelClient.add(buttonClientOk, gridBagConstraintsClient);
 
+        gridBagConstraintsClient.gridx = 1;
+        gridBagConstraintsClient.gridy = 2;
+        panelClient.add(buttonClientCancel, gridBagConstraintsClient);
+
         buttonClientOk.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -38,14 +44,19 @@ public class ViewLoginClient {
             }
         });
 
-        JFrame frameViewClient = getFrame(500, 200);
+        JFrame frameViewClient = getFrame(300, 200);
         frameViewClient.add(panelClient);
     }
 
-    //private static void GridBagConstraints(GridBagConstraints gridBagConstraintsClient) {
-    //    gridBagConstraintsClient.gridx = 0;
-    //    gridBagConstraintsClient.gridy = 0;
-    //}
+    private static void GridBagConstraintsClient(GridBagConstraints gridBagConstraintsClient, int gridx, int gridy,
+                                 int top, int left, int bottom, int right, String anchor, Component component) {
+        gridBagConstraintsClient = new GridBagConstraints();
+        gridBagConstraintsClient.gridx = gridx;
+        gridBagConstraintsClient.gridy = gridy;
+        gridBagConstraintsClient.insets = new Insets(top, left, bottom, right);
+        gridBagConstraintsClient.anchor = anchor;
+        panelClient.add(component, gridBagConstraintsClient);
+    }
 
     private static JFrame getFrame(int a, int b) {
         JFrame frameViewClient = new JFrame();
@@ -56,5 +67,11 @@ public class ViewLoginClient {
         frameViewClient.setVisible(true);
         frameViewClient.setLocationRelativeTo(null);
         return frameViewClient;
+    }
+}
+
+public class MainClass {
+    public static void main(String[] args){
+        new FrameViewClient();
     }
 }
