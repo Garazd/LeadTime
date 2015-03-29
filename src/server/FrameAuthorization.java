@@ -48,7 +48,6 @@ public class FrameAuthorization {
                 System.out.println("OK!");
             }
         });
-
     }
 
     private static void GridBagContrainCustom(GridBagConstraints gbc, int gridx, int gridy, int gridwidth,
