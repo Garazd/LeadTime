@@ -1,7 +1,11 @@
 package server;
 
-public class MainServer {
-    public static void main(String[] args) {
+import server.frame.FrameAuthorization;
+
+public class MainServer
+{
+    public static void main(String[] args)
+    {
         new FrameAuthorization();
     }
 }
