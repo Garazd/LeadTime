@@ -6,26 +6,26 @@ import java.awt.*;
 public class Functions
 {
     public static void GridBagConstrainCustom(GridBagConstraints gbc, int gridx, int gridy, int gridwidth,
-                                              int top, int left, int bottom, int right, Component component,
-                                              JPanel panel)
+                                              int gridheight, double weightx, double weighty, int anchor, int fill,
+                                              int top, int left, int bottom, int right, int ipadx, int ipady,
+                                              Component component, JPanel panel)
     {
         gbc.gridx = gridx;
         gbc.gridy = gridy;
         gbc.gridwidth = gridwidth;
-        //gbc.gridheight = gridheight;
-        //gbc.weightx = weightx;
-        //gbc.weighty = weighty;
-        gbc.anchor = GridBagConstraints.WEST;
-        //gbc.fill = fill;
+        gbc.gridheight = gridheight;
+        gbc.weightx = weightx;
+        gbc.weighty = weighty;
+        gbc.anchor = anchor;
+        gbc.fill = fill;
         gbc.insets = new Insets(top, left, bottom, right);
-        //gbc.ipadx = ipadx;
-        //gbc.ipady = ipady;
+        gbc.ipadx = ipadx;
+        gbc.ipady = ipady;
         panel.add(component, gbc);
     }
 
     public static void createFrame(JFrame frame, JPanel panel, boolean resizable)
     {
-
         frame.setTitle(getAppName());
         frame.add(panel);
         frame.setResizable(resizable);
