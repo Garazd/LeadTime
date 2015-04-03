@@ -11,8 +11,6 @@ class FrameViewClient {
 
     FrameViewClient() {
         GridBagLayout gridBagLayoutClient = new GridBagLayout();
-
-
         panelClient.setLayout(gridBagLayoutClient);
 
         final JButton buttonClientOk = new JButton("Ok");
@@ -21,8 +19,8 @@ class FrameViewClient {
         JTextField textFieldLogin = new JTextField(20);
         JTextField textFieldPassword = new JTextField(20);
 
-        GridBagConstraintsClient(gridBagConstraintsClient);
-        panelClient.add(textFieldLogin, gridBagConstraintsClient);
+        getGridBagConstraintsClient;
+        panelClient.add(textFieldLogin);
 
         gridBagConstraintsClient.gridx = 0;
         gridBagConstraintsClient.gridy = 1;
@@ -48,14 +46,14 @@ class FrameViewClient {
         frameViewClient.add(panelClient);
     }
 
-    private static void GridBagConstraintsClient(GridBagConstraints gridBagConstraintsClient, int gridx, int gridy,
-                                 int top, int left, int bottom, int right, String anchor, Component component) {
-        gridBagConstraintsClient = new GridBagConstraints();
+    private static GridBagConstraints getGridBagConstraintsClient (int gridx, int gridy,
+                                 int top, int left, int bottom, int right, Component component) {
+        GridBagConstraints gridBagConstraintsClient = new GridBagConstraints();
         gridBagConstraintsClient.gridx = gridx;
         gridBagConstraintsClient.gridy = gridy;
         gridBagConstraintsClient.insets = new Insets(top, left, bottom, right);
-        gridBagConstraintsClient.anchor = anchor;
         panelClient.add(component, gridBagConstraintsClient);
+        return getGridBagConstraintsClient();
     }
 
     private static JFrame getFrame(int a, int b) {
